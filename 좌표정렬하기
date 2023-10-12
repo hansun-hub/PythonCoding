@@ -1,0 +1,12 @@
+n = int(input())
+
+array =[]
+for _ in range(n):
+    [i,j] = map(int,input().split())
+    array.append([i,j])
+    
+array.sort()
+
+for i in range(n):
+    print(array[i][0],array[i][1])
+    

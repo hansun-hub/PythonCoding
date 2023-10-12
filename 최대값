@@ -1,0 +1,12 @@
+arr=[]
+max = 0
+cnt=0
+num=0
+for i in range(9):
+    cnt+=1
+    n=int(input())
+    if max<n:
+        max=n
+        num=cnt
+print(max,num)
+    
