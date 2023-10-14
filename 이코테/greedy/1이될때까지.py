@@ -16,18 +16,19 @@
 # result+=(n-1)
 # print(result)
 
-n,k = map(int,input.split())
-result = 0
+n,k = map(int,input().split())
+count=0
 
 while True:
-    target = (n//k)*k
-    result += (n-target)
+    target=(n//k)*k
+    count+=(n-target)
     n=target
+
     if n<k:
         break
-    result+=1
-    n //= k
+    count+=1
+    n=n//k
 
-result += (n-1)
-print(result)
+count+=(n-1)
+print(count)
 
