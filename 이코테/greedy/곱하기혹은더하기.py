@@ -1,3 +1,4 @@
+#23.10.15
 # data = input()
 # result = int(data[0])
 #
@@ -10,6 +11,7 @@
 #
 # print(result)
 
+
 data = input()
 result = int(data[0])
 
@@ -18,7 +20,8 @@ for i in range(1,len(data)):
     if num<=1 or result<=1:
         result+=num
     else:
-        result*num
+        result*=num
 print(result)
+
 
 

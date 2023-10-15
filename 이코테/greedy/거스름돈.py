@@ -1,3 +1,4 @@
+#23.10.15
 # n=1250
 # count=0
 #
@@ -10,11 +11,12 @@
 # print(count)
 
 n=1250
-coin_type=[500,100,50,10]
 count=0
 
-for coin in coin_type:
-    n=n%coin
-    count+=n//coin
+coinType = [500,100,50,10]
+
+for i in coinType:
+    count+=(n//i)
+    n=n%i
 
 print(count)

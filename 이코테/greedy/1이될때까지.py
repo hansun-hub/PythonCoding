@@ -1,3 +1,4 @@
+#23.10.15
 # n,k = map(int(input().split()))
 # result=0
 #
@@ -17,18 +18,16 @@
 # print(result)
 
 n,k = map(int,input().split())
-count=0
+result = 0
 
 while True:
     target=(n//k)*k
-    count+=(n-target)
+    result+=n-target
     n=target
-
     if n<k:
         break
-    count+=1
+    result+=1
     n=n//k
 
-count+=(n-1)
-print(count)
-
+result += (n-1)
+print(result)

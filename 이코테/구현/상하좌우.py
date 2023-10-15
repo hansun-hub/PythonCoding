@@ -1,3 +1,4 @@
+#23.10.15
 n = int(input())
 plan = input().split()
 
