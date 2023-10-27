@@ -1,25 +1,20 @@
+def lastday(month):
+    days = [0,31,28,31,30,31,30,31,31,30,31,30,31]
+    return days[month]
+
+
+def daysreturn(m1,d1,m2,d2):
+    days=0
+    if m1 == m2:
+        days=d2-d1+1
+    else:
+        days += (lastday(m1) - d1) + 1
+        for i in range(m1+1,m2):
+            days+=lastday(i)
+        days += d2
+    return days
+
 t=int(input())
 for tc in range(1,t+1):
-    n=int(input())
-
-    dr = [0, 1, 0, -1]
-    dc = [1, 0, -1, 0]
-
-    arr = [[0]*n for _ in range(n)]
-    num=1
-    direction=0
-    r,c=0,0
-    for i in range(n*n):
-        arr[r][c]=num
-        nr,nc=r+dr[direction],c+dc[direction]
-
-        if nr<0 or nr>=n or nc <0 or nc>=n or arr[nr][nc] != 0:
-            direction=(direction+1)%4
-            nr, nc = r + dr[direction], c + dc[direction]
-
-        num+=1
-        r,c=nr,nc
-
-    print(f'#{tc}')
-    for row in arr:
-        print(" ".join(map(str,row)))
+    m1,d1,m2,d2 = map(int,input().split())
+    print(f'#{tc} {daysreturn(m1,d1,m2,d2)}')
