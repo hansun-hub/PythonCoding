@@ -1,31 +1,26 @@
 
-def dfs(count):
-    global result
+def dfs(index,sTaste,sKcal):
+    global maxTaste
 
-    if not count:
-        temp = int(''.join(values))
-        if result<temp:
-            result = temp
+    if sKcal > limit:
         return
 
-    for i in range(length):
-        for j in range(i + 1, length):
-            values[i],values[j] = values[j],values[i]
-            temp_key = ''.join(values)
-            if visited.get((temp_key,count-1),1):
-                visited[temp_key,count-1]=0
-                dfs(count-1)
-            values[j],values[i] = values[i],values[j]
+    if sTaste > maxTaste:
+        maxTaste = sTaste
+
+    if index == n:
+        return
+
+    taste,kcal = arr[index]
+
+    dfs(index+1,sTaste+taste,sKcal+kcal)
+    dfs(index+1,sTaste,sKcal)
 
 t=int(input())
 for tc in range(1,t+1):
-    result = -1
-    value, count = input().split()
-    values = list(value)
-    count = int(count)
-    length = len(values)
-    visited = {}
-    dfs(count)
+    n,limit = map(int,input().split())
+    arr = [list(map(int,input().split())) for _ in range(n)]
 
-
-    print(f'#{tc} {result}')
+    maxTaste=0
+    dfs(0,0,0)
+    print(f'#{tc} {maxTaste}')
