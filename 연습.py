@@ -1,26 +1,24 @@
+for tc in range(1,11):
+    #palindorme 횟수
+    p=int(input())
+    n=8
+    arr = [list(input()) for _ in range(n)]
+    count=0
 
-def dfs(index,sTaste,sKcal):
-    global maxTaste
+    #가로
+    for i in range(0,n):
+        for j in range(0,n-p+1):
+            if arr[i][j:j+p] == arr[i][j:j+p][::-1]:
+                count+=1
 
-    if sKcal > limit:
-        return
+    #세로
+    for j in range(0,n):
+        for i in range(0,n-p+1):
+            char=''
+            for ci in range(i,i+p):
+                char+=arr[ci][j]
+            if char == char[::-1]:
+                count+=1
 
-    if sTaste > maxTaste:
-        maxTaste = sTaste
+    print(f'#{tc} {count}')
 
-    if index == n:
-        return
-
-    taste,kcal = arr[index]
-
-    dfs(index+1,sTaste+taste,sKcal+kcal)
-    dfs(index+1,sTaste,sKcal)
-
-t=int(input())
-for tc in range(1,t+1):
-    n,limit = map(int,input().split())
-    arr = [list(map(int,input().split())) for _ in range(n)]
-
-    maxTaste=0
-    dfs(0,0,0)
-    print(f'#{tc} {maxTaste}')
