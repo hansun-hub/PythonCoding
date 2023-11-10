@@ -1,3 +1,6 @@
+#D1 - 2072. 홀수만 더하기
+#23/11/10
+
 t = int(input())
 
 for tc in range(1,t+1):
